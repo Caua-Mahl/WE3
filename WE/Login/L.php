@@ -1,7 +1,6 @@
 <?php
 
-function WebServiceExec($params, $data)
-{
+function WebServiceExec($params, $data) {
     $banco = Db::Read()
         ->clear()
         ->select(["bp.nome"])
@@ -19,3 +18,4 @@ function WebServiceExec($params, $data)
     $banco["logado"] = True;
     return $banco;
 }
+
