@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Classes\Requisitor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use function Laravel\Prompts\error;
 
 class LoginController extends Controller {
     public function index() {
@@ -24,11 +27,9 @@ class LoginController extends Controller {
         ]);
         $resultado = Requisitor::requisitarLogin($dados->only(['email', 'cpf']));
         if ($resultado->result->logado) {
-            return "receba";
-            return redirect()->route('loja.index');
+            return redirect()->route('loja.index')->with('sucess', ('Bem vindo, ' . $resultado->result->nome . '!'));
         }
-        return "devolva";
-        return redirect()->route('login.index');
+        return redirect()->route('login.index')->withErrors(['email' => 'E-mail ou cpf inválidos']);
     }
 
     public function deslogar() {
