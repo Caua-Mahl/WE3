@@ -4,22 +4,29 @@
 
 @section('conteudo')
 
-<h1>Login</h1>
+    <h1>Login</h1>
 
-<form action="{{ route('login.logar') }}" method="post">
-    @csrf
+    @if (auth()->check())
+        <p>Você já está logado</p>
+        <a href="{{ route('login.deslogar') }}">deslogar</a>
+    @else
+        <form action="{{ route('login.logar') }}" method="post">
+            @csrf
 
-    @error('email')
-        <p>{{ $message }}</p> 
-    @enderror
-    @error('cpf')
-        <p>{{ $message }}</p>
-    @enderror
-    <input type="text"     name="email" id="email" placeholder="E-mail">   
-    <input type="password" name="cpf"   id="cpf"   placeholder="Cpf">
-    <input type="submit"  value="Entrar">
-</form>
+            @error('email')
+                <p>{{ $message }}</p> 
+            @enderror
 
-<a href="{{ route('home.index') }}"></a>
+            @error('cpf')
+                <p>{{ $message }}</p>
+            @enderror
+
+            <input type="text"     name="email" id="email" placeholder="E-mail">   
+            <input type="password" name="cpf"   id="cpf"   placeholder="Cpf">
+            <input type="submit"  value="Entrar">
+        </form>
+    @endif
+
+    <a href="{{ route('home.index') }}">Home</a>
 
 @endsection
