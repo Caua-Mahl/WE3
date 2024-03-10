@@ -4,8 +4,9 @@
 
 @section('conteudo')
 
+
 @if (session('sucess'))
-<p>{{ session('sucess') }}</p>
+    <p>{{ session('sucess') }}</p>
 @endif
 
 <a href="{{ route('home.index') }}">Home</a>

@@ -1,3 +1,4 @@
+
 @extends('layouts.main')
 
 @section('titulo', 'Login')
@@ -6,7 +7,8 @@
 
     <h1>Login</h1>
 
-    @if (auth()->check())
+    @if (session('usuario'))
+        <p>Bem vindo, {{ session('usuario')->name }}!</p>
         <p>Você já está logado</p>
         <a href="{{ route('login.deslogar') }}">deslogar</a>
     @else

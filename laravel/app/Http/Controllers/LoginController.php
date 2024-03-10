@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Classes\Requisitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 use function Laravel\Prompts\error;
 
 class LoginController extends Controller
 {
     public function index()
-    {
+    {        
         return view('login');
     }
 
@@ -30,18 +30,36 @@ class LoginController extends Controller
                 'cpf.regex'      => 'O campo cpf deve ter apenas números'
             ]
         );
+
         $resultado = Requisitor::requisitarLogin($dados->only(['email', 'cpf']));
-        if ($resultado->result->logado) {
-            return print_r(Auth::loginUsingId($resultado->result->idpessoa));
-            
-            return redirect()->route('loja.index')->with('sucess', ('Bem vindo, ' . $resultado->result->nome . '!'));
-        }
-        return redirect()->route('login.index')->withErrors(['email' => 'E-mail ou cpf inválidos']);
+        if (is_null($resultado) or !($resultado->result->logado))
+            return redirect()->route('login.index')->withErrors(['email' => 'E-mail ou cpf inválidos']);
+
+        $usuario = User::firstOrCreate(
+            [
+                'email'    => $dados->email,
+                'id'       => $resultado->result->idpessoa,
+            ],
+            [
+                'name'     => $resultado->result->nome,
+                'carrinho' => json_encode([]),
+                'password' => $dados->cpf
+            ]
+        );
+
+        Auth::Attempt(['email' => $dados->email, 'password' => $dados->cpf]);
+
+        if (!Auth::check())
+            return redirect()->route('login.index')->withErrors(['email' => 'Erro ao logar']);
+
+        session(['usuario' => $usuario]);
+
+        return redirect()->route('loja.index')->with('sucess', ('Bem vindo, ' . $resultado->result->nome . '!'));
     }
 
     public function deslogar()
     {
-        auth()->logout();
+        session()->flush();
         return redirect()->route('login.index');
     }
 }
