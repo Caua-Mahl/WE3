@@ -8,7 +8,6 @@
 </head>
 <body>
     <header>
-        <img src="{{ asset('imgs/logo.png') }}" alt="Shenlong Airlines">
         <a href="{{ route('home.index') }}" class="logo">Shenlong Airlines</a>
         <nav>
             <a href="{{ route('home.index') }}">Home</a>

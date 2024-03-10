@@ -4,31 +4,31 @@
 @section('titulo', 'Login')
 
 @section('conteudo')
-
-    <h1>Login</h1>
-
     @if (session('usuario'))
-        <p>Bem vindo, {{ session('usuario')->name }}!</p>
-        <p>Você já está logado</p>
-        <a href="{{ route('login.deslogar') }}">deslogar</a>
+        <div class="deslogar">     
+            <h1>Login</h1>
+            <p>Bem vindo, {{ session('usuario')->name }}!</p>
+            <p>Você já está logado</p>
+            <a href="{{ route('login.deslogar') }}">deslogar</a>
+        </div>
     @else
-        <form action="{{ route('login.logar') }}" method="post">
-            @csrf
+        <div class="logar">
+            <h1>Login</h1>
+            <form action="{{ route('login.logar') }}" method="post">
+                @csrf
 
-            @error('email')
-                <p>{{ $message }}</p> 
-            @enderror
+                @error('email')
+                    <p>{{ $message }}</p> 
+                @enderror
 
-            @error('cpf')
-                <p>{{ $message }}</p>
-            @enderror
+                @error('cpf')
+                    <p>{{ $message }}</p>
+                @enderror
 
-            <input type="text"     name="email" id="email" placeholder="E-mail">   
-            <input type="password" name="cpf"   id="cpf"   placeholder="Cpf">
-            <input type="submit"  value="Entrar">
-        </form>
+                <input type="text"     name="email" id="email" placeholder="E-mail">   
+                <input type="password" name="cpf"   id="cpf"   placeholder="Cpf">
+                <input type="submit"  value="Entrar">
+            </form>
+        </div>
     @endif
-
-    <a href="{{ route('home.index') }}">Home</a>
-
 @endsection
