@@ -16,7 +16,6 @@
             <h1>Login</h1>
             <form action="{{ route('login.logar') }}" method="post">
                 @csrf
-
                 @error('email')
                     <p>{{ $message }}</p> 
                 @enderror

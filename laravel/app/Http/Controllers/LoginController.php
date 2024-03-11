@@ -57,8 +57,7 @@ class LoginController extends Controller
         return redirect()->route('loja.index')->with('sucess', ('Bem vindo, ' . $resultado->result->nome . '!'));
     }
 
-    public function deslogar()
-    {
+    public function deslogar() {
         session()->flush();
         return redirect()->route('login.index');
     }
