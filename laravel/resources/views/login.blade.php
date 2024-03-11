@@ -7,9 +7,9 @@
     @if (session('usuario'))
         <div class="deslogar">     
             <h1>Login</h1>
-            <p>Bem vindo, {{ session('usuario')->name }}!</p>
-            <p>Você já está logado</p>
-            <a href="{{ route('login.deslogar') }}">deslogar</a>
+            <p>Olá, {{ session('usuario')->name }}!</p>
+            <p>Você já está logado, deseja deslogar?</p>
+            <a href="{{ route('login.deslogar') }}">Logout</a>
         </div>
     @else
         <div class="logar">

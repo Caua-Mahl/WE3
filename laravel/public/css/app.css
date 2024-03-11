@@ -125,3 +125,42 @@ a {
     font-weight: 500;
     margin: 20px 0;
 }
+
+.deslogar a {
+    color: #000000;
+    background-color: #7a72d285;
+    border-radius: 20px;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.loja {
+    width: 820px;
+    height: auto;
+    background: transparent;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 2px solid #ffffff49;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.produtos {
+    width: 420px;
+    height: auto;
+    background: transparent;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 2px solid #ffffff49;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

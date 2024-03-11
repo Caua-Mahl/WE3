@@ -16,7 +16,10 @@ class LojaController extends Controller {
             $modalidade = ['modalidade' => $request->session()->get('modalidade')];
 
         $produtos = Requisitor::requisitarProdutos($modalidade);
-        return view('loja')->with('produtos', $produtos->result);
 
+        session(['produtos' => $produtos->result]);
+       // return print_r(session('produtos'));
+        return view('loja');
     }
+
 }

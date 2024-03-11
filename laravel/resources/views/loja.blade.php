@@ -3,20 +3,24 @@
 @section('titulo', 'Loja')
 
 @section('conteudo')
+    <div class="loja">
+        @if (session('sucess'))
+            <p>{{ session('sucess') }}</p>
+        @endif
 
-
-@if (session('sucess'))
-    <p>{{ session('sucess') }}</p>
-@endif
-
-<a href="{{ route('home.index') }}">Home</a>
-
-<h1>Loja</h1>
-
-<h2>Produtos</h2>
-
-@foreach ($produtos as $produto)
-<p>{{ $produto->dscproduto }} - R$ {{ $produto->preco }}</p>
-@endforeach
-
+        <h1>Loja</h1>
+        @foreach (session('produtos') as $produto)
+            <div class="produtos"> 
+                <p>{{ $produto->dscproduto }} - R$ {{ $produto->preco }}</p>
+                <div class="detalhes" style="display: none;">
+                    <p>{{ $produto->dscproduto }}</p>
+                    <p>R$ {{ $produto->preco }},00</p>
+                    <p>{{ $produto->dscinterna }}</p>
+                    <a href="{{ route('loja.adicionar', ['id' => $produto->idproduto]) }}">Adicionar ao carrinho</a>
+                    <p>{{ $produto->quantidade }}</p>
+                    <a href="{{ route('loja.remover', ['id' => $produto->idproduto]) }}">Remover do carrinho</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection
