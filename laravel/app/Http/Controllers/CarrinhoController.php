@@ -13,19 +13,21 @@ class CarrinhoController extends Controller
 
     public function adicionar()
     {
-        $usuario = session('usuario');
-        return var_dump($usuario);
-
-        $carrinho = json_decode(User::where('id', session('usuario')->id)->first()->carrinho);
-        return print_r($carrinho);
-
+        $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho);
         for ($i = 0; $i < count($carrinho); $i++) {
             if ($carrinho[$i]->id == request('id')) {
                 $carrinho[$i]->quantidade += request('quantidade');
+            } else {
+                $carrinho[] = [
+                    'id'         => request('id'),
+                    'nome'       => request('nome'),
+                    'preco'      => request('preco'),
+                    'quantidade' => request('quantidade')
+                ];
             }
         }
-
-        User::where('id', session('usuario')->id)->update(['carrinho' => json_encode([])]);
+        return print_r($carrinho);
+        User::where('id', session('usuario')->id)->update(['carrinho' => json_encode(['carrinho' => $carrinho])]);
 
         return redirect()->route('loja.index');
     }
