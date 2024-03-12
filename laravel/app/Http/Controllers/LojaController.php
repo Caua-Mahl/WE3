@@ -17,7 +17,7 @@ class LojaController extends Controller
         if ($request->session()->has('modalidade'))
             $modalidade = ['modalidade' => $request->session()->get('modalidade')];
 
-        $produtos  = Requisitor::requisitarProdutos($modalidade);
+        $produtos  = Requisitor::requisitarApi($modalidade, 'https://ah.we.imply.com/caua/produtos');
         $descrição = "Este lugar é muito bonito, tem uma paisagem incrível e é muito bom para relaxar.";
         $paises    = [
             "Espanha",

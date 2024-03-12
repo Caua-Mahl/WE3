@@ -7,7 +7,11 @@
         <h1>Carrinho</h1>
 
         @if (count(session('carrinho')) == 0)
-            <h2>Carrinho vazio</h2>
+            <div class="vazio">
+                <img src="{{ asset('imgs/carrinho_vazio.png') }}" alt="Carrinho vázio">
+                <h2>Seu carrinho está vázio...</h2>
+                <p>Vá até a aba de loja e adicione produtos ao seu carrinho!</p>
+            </div>
         @else
             @foreach (session('carrinho') as $produto)
                 <div class="produtoCarrinho">

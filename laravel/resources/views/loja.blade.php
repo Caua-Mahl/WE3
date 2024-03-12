@@ -7,7 +7,7 @@
     <h1>Loja</h1>
 
     @if (session('sucess'))
-        <p class="sucess" style="color: green;">{{ session('sucess') }}</p>
+        <p class="sucesso" style="color: green;">{{ session('sucess') }}</p>
     @endif
 
     @foreach (session('produtos') as $produto)

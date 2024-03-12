@@ -186,6 +186,11 @@ a {
     text-align: center;
 }
 
+.loja .sucesso {
+    font-size: 25px;
+    margin: 20px 0;
+}
+
 .produtos {
     width: auto;
     height: auto;
@@ -298,7 +303,6 @@ footer p {
 .carrinho {
     width: 800px;
     height: auto;
-    min-height: 650px;
     background: transparent;
     padding: 50px 40px;
     border-radius: 10px;
@@ -308,6 +312,21 @@ footer p {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.carrinho img {
+    width: 200px;
+    height: 200px;
+}
+
+.vazio {
+    font-size: 25px;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+
+.vazio h2 {
+    margin: 20px 0;
 }
 
 .produtoCarrinho {
