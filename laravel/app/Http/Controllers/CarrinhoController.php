@@ -13,6 +13,7 @@ class CarrinhoController extends Controller
             return redirect()->route('login.index')->with('erro', 'Você precisa estar logado para acessar o carrinho');
 
         session(['carrinho' => (json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho)]);
+        return print_r(session('carrinho'));
         session(['total' => Carrinho::Total(session('carrinho'))]);
 
         return view('carrinho');
@@ -67,10 +68,10 @@ class CarrinhoController extends Controller
         $produto  = [
             'id' => request('id')
         ];
-
         $indice = array_search($produto['id'], array_column($carrinho, 'id'));
 
         unset($carrinho[$indice]);
+        return print_r($carrinho);
 
         User::where('name', session('usuario')->name)->update(['carrinho' => json_encode(['carrinho' => $carrinho])]);
 
