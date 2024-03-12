@@ -18,16 +18,21 @@ class LojaController extends Controller
             $modalidade = ['modalidade' => $request->session()->get('modalidade')];
 
         $produtos  = Requisitor::requisitarProdutos($modalidade);
-        $paises    = ["Espanha", "Brasil", "Japão", "França"];
         $descrição = "Este lugar é muito bonito, tem uma paisagem incrível e é muito bom para relaxar.";
+        $paises    = [
+            "Espanha",
+            "Brasil",
+            "Japão",
+            "França"
+        ];
 
         for ($i = 0; $i < count($produtos->result); $i++) {
             $produtos->result[$i]->dscinterna = $descrição;
-            $produtos->result[$i]->dscproduto = "Viagem para " . $paises[$i];
+            $produtos->result[$i]->dscproduto = "Passagens para " . $paises[$i];
         }
 
         session(['produtos' => $produtos->result]);
+
         return view('loja');
     }
-
 }

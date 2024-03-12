@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Classes\Carrinho;
 
 class CarrinhoController extends Controller
 {
@@ -12,6 +13,8 @@ class CarrinhoController extends Controller
             return redirect()->route('login.index')->with('erro', 'Você precisa estar logado para acessar o carrinho');
 
         session(['carrinho' => (json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho)]);
+        session(['total' => Carrinho::Total(session('carrinho'))]);
+
         return view('carrinho');
     }
 
@@ -29,15 +32,15 @@ class CarrinhoController extends Controller
             if (array_search($produto['id'], array_column($carrinho, 'id')) !== false) {
                 $indice = array_search($produto['id'], array_column($carrinho, 'id'));
                 $carrinho[$indice]->quantidade += $produto['quantidade'];
-            }
-            else {
+            } else {
                 array_push($carrinho, $produto);
             }
-        }
-        else {
+        } else {
             array_push($carrinho, $produto);
         }
+
         User::where('name', session('usuario')->name)->update(['carrinho' => json_encode(['carrinho' => $carrinho])]);
+
         return redirect()->route('loja.index')->with('sucess', 'Produto adicionado ao carrinho');
     }
 }

@@ -93,11 +93,11 @@ a {
 }
 
 .logar {
-    width: 420px;
+    width: 800px;
     height: auto;
-    min-height: 400px;
+    min-height: 650px;
     background: transparent;
-    padding: 30px 40px;
+    padding: 50px 40px;
     border-radius: 10px;
     border: 2px solid #ffffff49;
     backdrop-filter: blur(5px);
@@ -110,9 +110,9 @@ a {
 .logar form {
     width: 100%;
     position: relative;
-    height: 50px;
-    margin: 20px 0;
-    font-size: 18px;
+    height: 100px;
+    margin: 40px 0;
+    font-size: 26px;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -121,18 +121,18 @@ a {
 .logar form input {
     width: 100%;
     height: 100%;
-    padding: 20px 45px 20px 20px;
+    padding: 25px 45px 20px 20px;
     border: none;
     outline: none;
     background: #d7d2d2b5;
     color: #000000;
-    font-size: 18px;
+    font-size: 26px;
     border-radius: 30px;
     margin: 15px 0;
 }
 
 .deslogar {
-    width: 420px;
+    width: 620px;
     height: auto;
     background: transparent;
     padding: 30px 40px;
@@ -147,9 +147,9 @@ a {
 
 .deslogar p {
     color: #000000;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 500;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .deslogar a {
@@ -158,7 +158,7 @@ a {
     border-radius: 20px;
     padding: 6px 12px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 500;
     margin: 20px 0;
 }
@@ -241,18 +241,62 @@ a {
 .carregar {
     width: 130px;
     height: 130px;
-    animation: rodando  1s infinite;
+    animation: carregando  1s infinite;
     border: 5px solid #000000;
     border-top: 5px solid #3498db;
     border-radius: 50%;
     margin: 70px 70px 0px 0px;
 }
 
-@keyframes rodando {
+@keyframes carregando {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+footer {
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    text-align: left;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px 30px;    
+
+}
+
+footer p {
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.direita {
+    position: fixed;
+    right: 0;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+
+.carrinho {
+    width: 800px;
+    height: auto;
+    min-height: 650px;
+    background: transparent;
+    padding: 50px 40px;
+    border-radius: 10px;
+    border: 2px solid #ffffff49;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

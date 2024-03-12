@@ -8,19 +8,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use function Laravel\Prompts\error;
 
-class LoginController extends Controller
-{
-    public function index()
-    {        
+class LoginController extends Controller {
+    public function index() {        
         return view('login');
     }
 
-    public function logar(Request $dados)
-    {
+    public function logar(Request $dados) {
         $dados->validate(
             [
-                'email' => 'required|email',
-                'cpf'   => 'required|size:11|regex:/[0-9]{11}/'
+                'email'          => 'required|email',
+                'cpf'            => 'required|size:11|regex:/[0-9]{11}/'
             ],
             [
                 'email.required' => 'O campo e-mail é obrigatório',
@@ -32,6 +29,7 @@ class LoginController extends Controller
         );
 
         $resultado = Requisitor::requisitarLogin($dados->only(['email', 'cpf']));
+
         if (is_null($resultado) or !($resultado->result->logado))
             return redirect()->route('login.index')->withErrors(['email' => 'E-mail ou cpf inválidos']);
 
@@ -47,7 +45,10 @@ class LoginController extends Controller
             ]
         );
 
-        Auth::Attempt(['email' => $dados->email, 'password' => $dados->cpf]);
+        Auth::Attempt([
+            'email'    => $dados->email,
+            'password' => $dados->cpf
+        ]);
 
         if (!Auth::check())
             return redirect()->route('login.index')->withErrors(['email' => 'Erro ao logar']);
