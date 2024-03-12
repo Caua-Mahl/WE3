@@ -11,18 +11,20 @@ body {
     background-size: cover;
     background-position: center;
 }
+
 h1 {
     font-size: 50px;
     color: #000000;
     font-weight: 700;
     margin: 20px 0;
 }
+
 .home {
     backdrop-filter: blur(2px);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-
 }
+
 .home p {
     font-weight: 600;
     margin: 20px 0;
@@ -32,7 +34,7 @@ h1 {
 }
 
 header {
-    position: fixed;
+    position:fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -78,9 +80,8 @@ nav a:hover::before {
 section {
     position: relative;
     width: 100%;
-    height: 100vh;
     display: flex;
-    padding: 200px 100px;
+    padding: 100px 100px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -93,7 +94,8 @@ a {
 
 .logar {
     width: 420px;
-    height: 350px;
+    height: auto;
+    min-height: 400px;
     background: transparent;
     padding: 30px 40px;
     border-radius: 10px;
@@ -110,6 +112,10 @@ a {
     position: relative;
     height: 50px;
     margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 } 
 
 .logar form input {
@@ -199,6 +205,7 @@ a {
     justify-content: center;
     text-align: center;
     display: flex;
+    font-size: 20px;
 }
 .carrinhoLoja {
     width: auto;
@@ -218,9 +225,34 @@ a {
     font-size: 25px;
     font-weight: 500;
     margin: 20px 20px;
+    cursor: pointer;
 }
 
 .adicionar {
-    font-size: 30px;
+    font-size: 20px;
     margin: 0px;
+    cursor: pointer;
+}
+
+.info {
+    cursor:pointer;
+}
+
+.carregar {
+    width: 130px;
+    height: 130px;
+    animation: rodando  1s infinite;
+    border: 5px solid #000000;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    margin: 70px 70px 0px 0px;
+}
+
+@keyframes rodando {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

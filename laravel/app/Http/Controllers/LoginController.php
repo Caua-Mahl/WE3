@@ -42,7 +42,7 @@ class LoginController extends Controller
             ],
             [
                 'name'     => $resultado->result->nome,
-                'carrinho' => json_encode([]),
+                'carrinho' => json_encode(['carrinho' => []]),
                 'password' => $dados->cpf
             ]
         );
@@ -54,7 +54,7 @@ class LoginController extends Controller
 
         session(['usuario' => $usuario]);
 
-        return redirect()->route('loja.index')->with('sucess', ('Bem vindo, ' . $resultado->result->nome . '!'));
+        return redirect()->route('loja.index');
     }
 
     public function deslogar() {

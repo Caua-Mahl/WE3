@@ -23,7 +23,7 @@ class LojaController extends Controller
 
         for ($i = 0; $i < count($produtos->result); $i++) {
             $produtos->result[$i]->dscinterna = $descrição;
-            $produtos->result[$i]->dscproduto = $paises[$i];
+            $produtos->result[$i]->dscproduto = "Viagem para " . $paises[$i];
         }
 
         session(['produtos' => $produtos->result]);

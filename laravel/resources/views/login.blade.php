@@ -23,11 +23,24 @@
                 @error('cpf')
                     <p>{{ $message }}</p>
                 @enderror
-
+                <div class="carregar" style="display: none;"></div>
                 <input type="text"     name="email" id="email" placeholder="E-mail">   
                 <input type="password" name="cpf"   id="cpf"   placeholder="Cpf">
-                <input type="submit"  value="Entrar">
+                <input type="submit"   value="Entrar" onclick="carregar(this.parentElement)">
             </form>
         </div>
     @endif
 @endsection
+
+<script>
+    function carregar(div) {
+        var inputs = div.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.display = "none";
+        }  
+        div.getElementsByClassName("carregar")[0].style.display = "block";
+        div.getElementsByTagName("form")[0].style.display = "flex";
+
+        //amanhã na imply tentar usando a classe logar
+    }
+</script>

@@ -5,25 +5,30 @@
 @section('conteudo')
 <div class="loja">
     <h1>Loja</h1>
+    @if (session('sucess'))
+        <p class="sucess">{{ session('sucess') }}</p>
+    @endif
     @foreach (session('produtos') as $produto)
-    <div class="produtos" onclick="mostrarInfo(this)">
-        <h2>{{ $produto->dscproduto }} - R$ {{ $produto->preco }},00</p>
-            <div class="detalhes escondido" style="display: none;">
-                <p>{{ $produto->dscinterna }}</p>
+    <div class="produtos">
+        <h2 class="info" onclick="mostrarInfo(this.parentElement)">
+            {{ $produto->dscproduto }} - R$ {{ $produto->preco }},00
+        </h2>
+        <div class="detalhes escondido" style="display: none;">
+            <p>{{ $produto->dscinterna }}</p>
+            <form action="{{ route('carrinho.adicionar') }}" method="post">
+                @csrf
                 <div class="carrinhoLoja">
-                    <p class="maisMenos" onclick="adicionar()">+</p>
-                    <p class="quantidade">{{$produto->quantidade }}</p>
-                    <p class="maisMenos" onclick="remover()">-</p>
+                    <p class="maisMenos" onclick="remover(this.parentElement)">-</p>
+                    <p class="quantidade">1</p>
+                    <p class="maisMenos" onclick="adicionar(this.parentElement)">+</p>
                 </div>
-                <form action="{{ route('carrinho.adicionar') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{ $produto->idproduto }}">
-                    <input type="hidden" name="preco" value="{{ $produto->preco }}">
-                    <input type="hidden" name="nome" value="{{ $produto->dscproduto }}">
-                    <input type="hidden" name="quantidade" value="pegarQuantidade()">
-                    <button type="submit" class="maisMenos adicionar">Adicionar ao carrinho</button>
-                </form>
-            </div>
+                <input type="hidden" name="id" value="{{ $produto->idproduto }}">
+                <input type="hidden" name="preco" value="{{ $produto->preco }}">
+                <input type="hidden" name="nome" value="{{ $produto->dscproduto }}">
+                <input type="hidden" name="quantidade" value="1" class="quantidadeFinal">
+                <button type="submit" class="maisMenos adicionar" onclick="pegarQuantidade(this.parentElement)">Adicionar ao Carrinho</button>
+            </form>
+        </div>
     </div>
     @endforeach
 </div>
@@ -32,30 +37,40 @@
 <script>
     function mostrarInfo(div) {
         var escondido = div.getElementsByClassName("escondido");
-        esconderTodas();
-        escondido[0].style.display = "block";
+        var botao     = div.getElementsByClassName("info");
+        var divs      = document.getElementsByClassName("produtos");
 
-    }
+        if (escondido[0].style.display == "none") {
+            var divs = document.getElementsByClassName("produtos");
 
-    function esconderTodas() {
-        var divs = document.getElementsByClassName("escondido");
-        for (var i = 0; i < divs.length; i++) {
-            divs[i].style.display = "none";
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display = "none";
+            }
+
+            div.style.display          = "block";
+            escondido[0].style.display = "block";
+        }
+        else {
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display  = "block";
+            }
+
+            escondido[0].style.display = "none";
         }
     }
-
-    function adicionar() {
-        var quantidade = document.getElementsByClassName("quantidade");
+    
+    function adicionar(div) {
+        var quantidade = div.getElementsByClassName("quantidade");
         quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) + 1;
     }
 
-    function remover() {
-        var quantidade = document.getElementsByClassName("quantidade");
-        quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) - 1 > 0 ? parseInt(quantidade[0].innerHTML) - 1 : 0;
+    function remover(div) {
+        var quantidade = div.getElementsByClassName("quantidade");
+        quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) - 1 > 1 ? parseInt(quantidade[0].innerHTML) - 1 : 1;
     }
 
-    function pegarQuantidade() {
-        var quantidade = document.getElementsByClassName("quantidade");
-        return quantidade[0].innerHTML;
+    function pegarQuantidade(div) {
+        div.getElementsByClassName("quantidade")[0].innerHTML;
+        div.getElementsByClassName("quantidadeFinal")[0].value = div.getElementsByClassName("quantidade")[0].innerHTML;
     }
 </script>
