@@ -27,9 +27,13 @@
             @endif
         </nav>
     </header>
-    <section>
+
+    <img src="{{ asset('imgs/airplane.png') }}" alt="avião que voa na página" class="aviao">
+
+    <section class="conteudo">
         @yield('conteudo')
     </section>
+
     <footer>
         <p>SAC</p>
         <p>Política de Privacidade</p>
@@ -77,15 +81,8 @@
             div.getElementsByClassName("quantidadeFinal")[0].value = div.getElementsByClassName("quantidade")[0].innerHTML;
         }
 
-        function carregar(div) {
-            var inputs = div.getElementsByTagName("input");
-            for (var i = 0; i < inputs.length; i++) {
-                inputs[i].style.display = "none";
-            }
-            div.getElementsByClassName("carregar")[0].style.display = "block";
-            div.getElementsByTagName("form")[0].style.display = "flex";
-
-            //amanhã na imply tentar usando a classe logar
+        function aviao() {
+            document.getElementsByClassName("aviao")[0].style.display    = "none" ? "block" : "none";
         }
 
     </script>

@@ -18,28 +18,29 @@
                     <div class="dadosCarrinho">
                         <h2>{{ $produto->nome }}</h2>
                         <div>
+                            <p>Valor unitário: R$ {{ number_format($produto->preco, 2, ",", ".") }}</p>
                             <p class="passagens">Passagens: {{ $produto->quantidade }}</p>
-                            <p>Total: R$ {{ $produto->preco * $produto->quantidade }},00</p>
+                            <p>Total: R$ {{ number_format($produto->preco * $produto->quantidade, 2, ",", ".") }}</p>
                         </div>
                     </div>
                     <div class="formCarrinho">
                         <form action="{{ route('carrinho.atualizar') }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $produto->id }}">
-                            <input type="number" name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal">
-                            <input type="submit" value="Atualizar" class="atualizarCarrinho">
+                            <input type="number" name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal" max="50" min="1">
+                            <input type="submit" value="Atualizar" class="atualizarCarrinho" onclick="aviao()">
                         </form>
                         <form action="{{ route('carrinho.remover') }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $produto->id }}">
-                            <input type="submit" value="Remover" class="removerCarrinho">
+                            <input type="submit" value="Remover" class="removerCarrinho" onclick="aviao()">
                         </form>
                     </div>
                 </div>
             @endforeach
 
             <div class="finalizar">
-                <p>Total Do Carrinho: R$ {{ session('total') }},00</p>
+                <p>Total Do Carrinho: R$ {{ number_format(session('total'), 2, ",", ".") }}</p>
                 <button>Finalizar Compra</button>
             </div>
         @endif

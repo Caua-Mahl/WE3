@@ -6,6 +6,7 @@
 
 body {
     min-height: 100vh;
+    max-width: 100%;
     background-image: url('https://www.freevector.com/uploads/vector/preview/13611/FreeVector-Vector-Sky-Background.jpg');
     background-color: aquamarine;
     background-size: cover;
@@ -25,9 +26,21 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }
 
+.sobre {
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    margin: 20px;
+}
+.home h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 20px 0px 0 30px;
+    display: flex;
+    justify-content:flex-start;
+}
 .home p {
-    font-weight: 600;
-    margin: 20px 0;
+    font-weight: 200;
     border-radius: 20px;
     padding: 10px 20px;
     font-size: 25px;
@@ -252,25 +265,16 @@ a {
     cursor:pointer;
 }
 
-.carregar {
-    width: 130px;
-    height: 130px;
-    animation: carregando  1s infinite;
-    border: 5px solid #000000;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    margin: 70px 70px 0px 0px;
+.aviao {
+    display: none;
+    opacity: 0;
+    width: auto;
+    height: 50;
+    margin-top: 200px;
+    position: absolute;
+    float: left;
+    animation: aviao 12s;
 }
-
-@keyframes carregando {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 
 footer {
     width: 100%;
@@ -390,4 +394,18 @@ footer p {
     border-radius: 30px;
     margin: 15px 0;
 }
+
+@keyframes aviao {
+    0% {
+        margin-left: 0;
+        opacity: 0.5;
+
+    }
+    100% {
+        margin-left: 75%;
+        opacity: 0;
+
+    }
+}
+
 

@@ -13,7 +13,7 @@
     @foreach (session('produtos') as $produto)
         <div class="produtos">
             <h2 class="info" onclick="mostrarInfo(this.parentElement)">
-                {{ $produto->dscproduto }} - R$ {{ $produto->preco }},00
+                {{ $produto->dscproduto }} - R$ {{ number_format($produto->preco, 2, ",", ".") }}
             </h2>
             <div class="detalhes escondido" style="display: none;">
                 <p>{{ $produto->dscinterna }}</p>
@@ -28,7 +28,7 @@
                     <input type="hidden" name="preco" value="{{ $produto->preco }}">
                     <input type="hidden" name="nome" value="{{ $produto->dscproduto }}">
                     <input type="hidden" name="quantidade" value="1" class="quantidadeFinal">
-                    <button type="submit" class="maisMenos adicionar" onclick="pegarQuantidade(this.parentElement)">Adicionar ao Carrinho</button>
+                    <button type="submit" class="maisMenos adicionar" onclick="pegarQuantidade(this.parentElement);  carregar()">Adicionar ao Carrinho</button>
                 </form>
             </div>
         </div>

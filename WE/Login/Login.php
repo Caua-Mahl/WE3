@@ -1,9 +1,11 @@
-
-function WebServiceExec($params, $data)
-{
+<?php
+function WebServiceExec($params, $data) {
     $banco = Db::Read()
         ->clear()
-        ->select(["bp.nome"])
+        ->select([
+			"bp.nome",
+			"bp.idpessoa",
+		])
         ->from('base_pessoa bp')
         ->whereAND([
             "bp.email" => $data['email'],

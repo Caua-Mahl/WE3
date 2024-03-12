@@ -28,7 +28,7 @@ class LoginController extends Controller {
             ]
         );
 
-        $resultado = Requisitor::requisitarApi($dados->only(['email', 'cpf']), 'https://ah.we.imply.com/caua/login');
+        $resultado = Requisitor::requisitarApi('https://ah.we.imply.com/caua/login', $dados->only(['email', 'cpf']));
 
         if (is_null($resultado) or !($resultado->result->logado))
             return redirect()->route('login.index')->withErrors(['email' => 'E-mail ou cpf inválidos']);

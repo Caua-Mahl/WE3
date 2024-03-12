@@ -5,6 +5,14 @@
 @section('conteudo')
     <div class="home">
         <h1>Seja bem-vindo à Shenlong Airlines, a melhor companhia aérea do mundo!</h1>
-        <p>A Shenlong Airlines é uma companhia aérea líder no Brasil, oferecendo voos domésticos e internacionais para diversos destinos. Comprometida em fornecer serviços de viagem seguros, confortáveis e convenientes, a Shenlong Airlines permite que você reserve seus bilhetes online, realize o check-in online e  aproveite descontos e benefícios especiais.</p>
+        <div class="sobre">
+            <h2>Sobre:</h2>
+            <p>
+                A Shenlong Airlines está presente em mais de 125 países, com uma vasta gama de opções para viagens áereas. 
+                Desde nossa fundação em 2003, acreditamos que inovar é transformar novas ideias em realidade para fazer a 
+                diferença no mundo. Contamos com alto padrão de conforto, além de atendimento online 24h. Nossa frota conta 
+                com os aviões mais confiáveis para garantir a segurança de nossos passageiros.
+            </p>
+        </div>
     </div>
 @endsection
