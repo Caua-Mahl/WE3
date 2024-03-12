@@ -51,8 +51,7 @@ class CarrinhoController extends Controller {
         return redirect()->route('carrinho.index');
     }
 
-    public function remover()
-    {
+    public function remover() {
         $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho;
         $produto  = [
             'id' => request('id')
@@ -64,5 +63,11 @@ class CarrinhoController extends Controller {
         return redirect()->route('carrinho.index');
     }
 
+    public function limpar() {
+        User::where('name', session('usuario')->name)
+            ->update(['carrinho' => json_encode(['carrinho' => []])]);
+
+        return redirect()->route('carrinho.index');
+    }
 
 }

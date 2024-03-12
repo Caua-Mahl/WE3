@@ -6,7 +6,6 @@ use App\Http\Classes\Requisitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use function Laravel\Prompts\error;
 
 class LoginController extends Controller {
     public function index() {        

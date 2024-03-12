@@ -11,6 +11,7 @@ body {
     background-color: aquamarine;
     background-size: cover;
     background-position: center;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -269,11 +270,11 @@ a {
     display: none;
     opacity: 0;
     width: auto;
-    height: 50;
+    height: 400px;
     margin-top: 200px;
     position: absolute;
     float: left;
-    animation: aviao 12s;
+    animation: aviao 7s linear infinite;
 }
 
 footer {
@@ -336,7 +337,7 @@ footer p {
 .produtoCarrinho {
     width: 100%;
     height: auto;
-    padding: 50px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid #00000049;
     backdrop-filter: blur(5px);
@@ -376,6 +377,10 @@ footer p {
     cursor: pointer;
 }
 
+.finalizar h3 {
+    font-size: 20px;
+}
+
 .formCarrinho {
     width: 50%;
     height: auto;
@@ -383,28 +388,53 @@ footer p {
 }
 
 .formCarrinho input {
+    width: auto;
+    height: auto;
+    padding: 25px 45px 20px 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.444);
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 30px;
+    margin: 15px 0;
+}
+
+.limparCarrinho {
     width: 100%;
     height: 100%;
     padding: 25px 45px 20px 20px;
     border: none;
     outline: none;
-    background: #d7d2d2b5;
-    color: #000000;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
     font-size: 26px;
     border-radius: 30px;
     margin: 15px 0;
+    cursor: pointer;
 }
+
+input:hover, button:hover, .maisMenos:hover {
+    background-color: #299fe4a8;
+    box-shadow: 0 0 10px rgba(234, 232, 232, 0.576);
+}
+
 
 @keyframes aviao {
     0% {
-        margin-left: 0;
-        opacity: 0.5;
+        margin-left: -20%;
+        opacity: 0.3;
 
     }
+    99% {
+        opacity: 0.3;
+    }
     100% {
-        margin-left: 75%;
+        margin-left: 100%;
         opacity: 0;
-
     }
 }
 

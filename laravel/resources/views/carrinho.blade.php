@@ -40,8 +40,12 @@
             @endforeach
 
             <div class="finalizar">
-                <p>Total Do Carrinho: R$ {{ number_format(session('total'), 2, ",", ".") }}</p>
+                <h3>Total Do Carrinho: R$ {{ number_format(session('total'), 2, ",", ".") }}</p>
                 <button>Finalizar Compra</button>
+                <form action="{{ route('carrinho.limpar') }}" method="post">
+                    @csrf
+                    <input type="submit" value="Limpar Carrinho" class="limparCarrinho" onclick="aviao()">
+                </form>
             </div>
         @endif
     </div>

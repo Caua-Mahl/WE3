@@ -28,7 +28,7 @@
                     <input type="hidden" name="preco" value="{{ $produto->preco }}">
                     <input type="hidden" name="nome" value="{{ $produto->dscproduto }}">
                     <input type="hidden" name="quantidade" value="1" class="quantidadeFinal">
-                    <button type="submit" class="maisMenos adicionar" onclick="pegarQuantidade(this.parentElement);  carregar()">Adicionar ao Carrinho</button>
+                    <button type="submit" class="maisMenos adicionar" onclick="pegarQuantidade(this.parentElement);  aviao()">Adicionar ao Carrinho</button>
                 </form>
             </div>
         </div>
