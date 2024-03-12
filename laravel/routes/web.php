@@ -18,5 +18,7 @@ Route::post('/loja/adicionar', [LojaController::class, 'adicionar'])->name('loja
 
 Route::get('/carrinho',            [CarrinhoController::class, 'index'])->name('carrinho.index');
 Route::post('/carrinho/adicionar', [CarrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
+Route::post('/carrinho/atualizar', [CarrinhoController::class, 'atualizar'])->name('carrinho.atualizar');
+Route::post('/carrinho/remover',   [CarrinhoController::class, 'remover'])->name('carrinho.remover');
 
 

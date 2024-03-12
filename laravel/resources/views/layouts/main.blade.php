@@ -10,7 +10,10 @@
 
 <body>
     <header>
-        <a href="{{ route('home.index') }}" class="logo">Shenlong Airlines</a>
+        <a href="{{ route('home.index') }}" class="logo">
+            <img src="{{ asset('imgs/dragao.png') }}" alt="Shenlong Airlines Logo">
+            <p>Shenlong Airlines</p>
+        </a>
         <nav>
             <a href="{{ route('home.index') }}">Home</a>
             <a href="{{ route('loja.index') }}">Loja</a>
@@ -34,12 +37,12 @@
         <p>Termo de Compra </p>
         <p class="direita">Desenvolvido por Cauã Mahl</p>
     </footer>
-    
+
     <script>
         function mostrarInfo(div) {
             var escondido = div.getElementsByClassName("escondido");
-            var botao     = div.getElementsByClassName("info");
-            var divs      = document.getElementsByClassName("produtos");
+            var botao = div.getElementsByClassName("info");
+            var divs = document.getElementsByClassName("produtos");
 
             if (escondido[0].style.display == "none") {
                 var divs = document.getElementsByClassName("produtos");
@@ -48,18 +51,17 @@
                     divs[i].style.display = "none";
                 }
 
-                div.style.display          = "block";
+                div.style.display = "block";
                 escondido[0].style.display = "block";
-            }
-            else {
+            } else {
                 for (var i = 0; i < divs.length; i++) {
-                    divs[i].style.display  = "block";
+                    divs[i].style.display = "block";
                 }
 
                 escondido[0].style.display = "none";
             }
         }
-        
+
         function adicionar(div) {
             var quantidade = div.getElementsByClassName("quantidade");
             quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) + 1;
@@ -79,12 +81,14 @@
             var inputs = div.getElementsByTagName("input");
             for (var i = 0; i < inputs.length; i++) {
                 inputs[i].style.display = "none";
-            }  
+            }
             div.getElementsByClassName("carregar")[0].style.display = "block";
             div.getElementsByTagName("form")[0].style.display = "flex";
 
             //amanhã na imply tentar usando a classe logar
         }
+
     </script>
 </body>
+
 </html>

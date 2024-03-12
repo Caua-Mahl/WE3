@@ -43,4 +43,39 @@ class CarrinhoController extends Controller
 
         return redirect()->route('loja.index')->with('sucess', 'Produto adicionado ao carrinho');
     }
+
+    public function atualizar()
+    {
+        $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho;
+        $produto  = [
+            'id'         => request('id'),
+            'quantidade' => request('quantidade')
+        ];
+
+        $indice = array_search($produto['id'], array_column($carrinho, 'id'));
+
+        $carrinho[$indice]->quantidade = $produto['quantidade'];
+
+        User::where('name', session('usuario')->name)->update(['carrinho' => json_encode(['carrinho' => $carrinho])]);
+
+        return redirect()->route('carrinho.index');
+    }
+
+    public function remover()
+    {
+        $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho;
+        $produto  = [
+            'id' => request('id')
+        ];
+
+        $indice = array_search($produto['id'], array_column($carrinho, 'id'));
+
+        unset($carrinho[$indice]);
+
+        User::where('name', session('usuario')->name)->update(['carrinho' => json_encode(['carrinho' => $carrinho])]);
+
+        return redirect()->route('carrinho.index');
+    }
+
+
 }
