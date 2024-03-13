@@ -8,8 +8,8 @@
 
         @if (count(session('carrinho')) == 0)
             <div class="vazio">
-                <img src="{{ asset('imgs/carrinho_vazio.png') }}" alt="Carrinho vázio">
-                <h2>Seu carrinho está vázio...</h2>
+                <img src="{{ asset('imgs/carrinho_vazio.png') }}" alt="Carrinho vazio">
+                <h2>Seu carrinho está vazio...</h2>
                 <p>Vá até a aba de loja e adicione produtos ao seu carrinho!</p>
             </div>
         @else
@@ -28,12 +28,12 @@
                             @csrf
                             <input type="hidden"  name="id"         value="{{ $produto->id }}">
                             <input type="number"  name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal" max="50" min="1">
-                            <input type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="aviao()">
+                            <input type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="goku()">
                         </form>
                         <form action="{{ route('carrinho.remover') }}" method="post">
                             @csrf
                             <input type="hidden" name="id"       value="{{ $produto->id }}">
-                            <input type="submit" value="Remover" class="removerCarrinho" onclick="aviao()">
+                            <input type="submit" value="Remover" class="removerCarrinho" onclick="goku()">
                         </form>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <button>Finalizar Compra</button>
                 <form action="{{ route('carrinho.limpar') }}" method="post">
                     @csrf
-                    <input type="submit" value="Limpar Carrinho" class="limparCarrinho" onclick="aviao()">
+                    <input type="submit" value="Limpar Carrinho" class="limparCarrinho" onclick="goku()">
                 </form>
             </div>
         @endif

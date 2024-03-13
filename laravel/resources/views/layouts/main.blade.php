@@ -14,21 +14,22 @@
                 <p>Shenlong Airlines</p>
             </a>
             <nav>
-                <a href="{{ route('home.index') }}" onclick="aviao()">Home</a>
-                <a href="{{ route('loja.index') }}" onclick="aviao()">Loja</a>
+                <a href="{{ route('home.index') }}" onclick="goku()">Home</a>
+                <a href="{{ route('loja.index') }}" onclick="goku()">Loja</a>
 
                 @if (!session('usuario'))
                     <a href
-                    ="{{ route('login.index') }}" onclick="aviao()">Entrar</a>
+                    ="{{ route('login.index') }}" onclick="goku()">Entrar</a>
                 @else
-                    <a href="{{ route('carrinho.index') }}" onclick="aviao()">Carrinho</a>
-                    <a href="{{ route('login.deslogar') }}" onclick="aviao()">Sair</a>
-                    <a href="{{ route('login.index') }}" onclick="aviao()" class="nome">{{ session('usuario')->name }}</a>
+                    <a href="{{ route('carrinho.index') }}" onclick="goku()">Carrinho</a>
+                    <a href="{{ route('login.deslogar') }}" onclick="goku()">Sair</a>
+                    <a href="{{ route('login.index') }}" onclick="goku()" class="nome">{{ session('usuario')->name }}</a>
                 @endif
             </nav>
         </header>
 
-        <img src="{{ asset('imgs/airplane.png') }}" alt="avião que voa na página" class="aviao">
+        <img src="{{ asset('imgs/goku.png') }}" alt="avião que voa na página" class="goku">
+        <!--<img src="{{ asset('imgs/shenlong.png') }}" alt="avião que voa na página" class="shenlong">-->
 
         <section class="conteudo">
             @yield('conteudo')
@@ -47,6 +48,7 @@
                 var escondido = div.getElementsByClassName("escondido");
                 var botao     = div.getElementsByClassName("info");
                 var divs      = document.getElementsByClassName("produtos");
+                var filtro    = document.getElementsByClassName("modalidade");
 
                 if (escondido[0].style.display == "none") {
                     var divs = document.getElementsByClassName("produtos");
@@ -62,6 +64,7 @@
                     for (var i = 0; i < divs.length; i++) {
                         divs[i].style.display = "block";
                     }
+
 
                     div.classList.add("hover");
                     escondido[0].style.display = "none";
@@ -82,8 +85,8 @@
                 div.getElementsByClassName("quantidadeFinal")[0].value = div.getElementsByClassName("quantidade")[0].innerHTML;
             }
 
-            function aviao() {
-                document.getElementsByClassName("aviao")[0].style.display = "block";
+            function goku() {
+                document.getElementsByClassName("goku")[0].style.display = "block";
             }
 
             function modalidade($modalidade) {

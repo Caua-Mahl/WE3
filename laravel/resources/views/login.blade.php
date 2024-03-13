@@ -8,7 +8,7 @@
             <h1>Login</h1>
             <p>Olá, {{ session('usuario')->name }}!</p>
             <p>Você já está logado, deseja deslogar?</p>
-            <a href="{{ route('login.deslogar') }}" onclick="aviao()">Logout</a>
+            <a href="{{ route('login.deslogar') }}" onclick="goku()">Logout</a>
         </div>
     @else
         <div class="logar">
@@ -25,7 +25,7 @@
                 
                 <input type="text"      name="email" id="email" placeholder="E-mail">   
                 <input type="password"  name="cpf"   id="cpf"   placeholder="Cpf">
-                <input type="submit"   value="Entrar" onclick="aviao()">
+                <input type="submit"   value="Entrar" onclick="goku()">
             </form>
         </div>
     @endif

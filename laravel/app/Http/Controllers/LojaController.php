@@ -26,8 +26,8 @@ class LojaController extends Controller
 
         for ($i = 0; $i < count($produtos->result); $i++) {
             $produtos->result[$i]->dscinterna = $descrição;
-            $produtos->result[$i]->dscproduto = $paises[$i];
-            
+            $produtos->result[$i]->dscproduto = $paises[$i];  
+            $produtos->result[$i]->imagem      = "paisagem.jpeg";
         }
 
         for ($i = 0; $i < 3; $i++) {
