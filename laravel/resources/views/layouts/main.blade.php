@@ -85,6 +85,11 @@
                 document.getElementsByClassName("aviao")[0].style.display = "block";
             }
 
+            function impedirLogin() {
+                window.history.back();
+                window.history.replaceState({}, "", "{{ route('home.index') }}");
+            }
+
         </script>
     </body>
 </html>

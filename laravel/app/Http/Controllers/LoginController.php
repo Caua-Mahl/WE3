@@ -53,8 +53,7 @@ class LoginController extends Controller {
             return redirect()->route('login.index')->withErrors(['email' => 'Erro ao logar']);
 
         session(['usuario' => $usuario]);
-
-        return redirect()->route('loja.index');
+        return redirect()->route('login.index');
     }
 
     public function deslogar() {

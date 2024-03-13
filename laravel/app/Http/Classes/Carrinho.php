@@ -7,7 +7,7 @@ use PhpParser\JsonDecoder;
 
 class Carrinho {
 
-    public static function Total(array|object $carrinho): int {
+    public static function Total($carrinho): int {
         $total = 0;
 
         foreach ($carrinho as $produto) {
@@ -17,7 +17,7 @@ class Carrinho {
         return $total;
     }
 
-    public static function Adicionar (array|object $carrinho, array $produto) : array {
+    public static function Adicionar ($carrinho, array $produto) : array {
 
         is_object($carrinho) ? $carrinho = (array) $carrinho : null;
 
@@ -31,7 +31,7 @@ class Carrinho {
         return $carrinho;
     }
 
-    public static function Remover (array|object $carrinho, array $produto) : array {
+    public static function Remover ($carrinho, array $produto) : array {
 
         is_object($carrinho) ? $carrinho = (array) $carrinho : null;
 
@@ -40,7 +40,7 @@ class Carrinho {
         return array_values($carrinho);
     }
 
-    public static function Atualizar (array|object $carrinho, array $produto) : array {
+    public static function Atualizar ($carrinho, array $produto) : array {
 
         is_object($carrinho) ? $carrinho = (array) $carrinho : null;
 
