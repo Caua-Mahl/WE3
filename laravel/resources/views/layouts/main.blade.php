@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-    <html lang="pt-br">
-
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +18,8 @@
                 <a href="{{ route('loja.index') }}" onclick="aviao()">Loja</a>
 
                 @if (!session('usuario'))
-                    <a href="{{ route('login.index') }}" onclick="aviao()">Entrar</a>
+                    <a href
+                    ="{{ route('login.index') }}" onclick="aviao()">Entrar</a>
                 @else
                     <a href="{{ route('carrinho.index') }}" onclick="aviao()">Carrinho</a>
                     <a href="{{ route('login.deslogar') }}" onclick="aviao()">Sair</a>
@@ -45,8 +45,8 @@
         <script>
             function mostrarInfo(div) {
                 var escondido = div.getElementsByClassName("escondido");
-                var botao = div.getElementsByClassName("info");
-                var divs = document.getElementsByClassName("produtos");
+                var botao     = div.getElementsByClassName("info");
+                var divs      = document.getElementsByClassName("produtos");
 
                 if (escondido[0].style.display == "none") {
                     var divs = document.getElementsByClassName("produtos");
@@ -55,29 +55,30 @@
                         divs[i].style.display = "none";
                     }
 
-                    div.style.display = "block";
+                    div.style.display          = "block";
+                    div.classList.remove("hover");
                     escondido[0].style.display = "block";
                 } else {
                     for (var i = 0; i < divs.length; i++) {
                         divs[i].style.display = "block";
                     }
 
+                    div.classList.add("hover");
                     escondido[0].style.display = "none";
                 }
             }
 
             function adicionar(div) {
-                var quantidade = div.getElementsByClassName("quantidade");
+                var quantidade          = div.getElementsByClassName("quantidade");
                 quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) + 1;
             }
 
             function remover(div) {
-                var quantidade = div.getElementsByClassName("quantidade");
+                var quantidade          = div.getElementsByClassName("quantidade");
                 quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) - 1 > 1 ? parseInt(quantidade[0].innerHTML) - 1 : 1;
             }
 
             function pegarQuantidade(div) {
-                div.getElementsByClassName("quantidade")[0].innerHTML;
                 div.getElementsByClassName("quantidadeFinal")[0].value = div.getElementsByClassName("quantidade")[0].innerHTML;
             }
 
@@ -85,9 +86,19 @@
                 document.getElementsByClassName("aviao")[0].style.display = "block";
             }
 
-            function impedirLogin() {
-                window.history.back();
-                window.history.replaceState({}, "", "{{ route('home.index') }}");
+            function modalidade($modalidade) {
+                var divs = document.getElementsByClassName("produtos");
+
+                if ($modalidade == 0) {
+                    for (var i = 0; i < divs.length; i++) {
+                        divs[i].style.display = "block";
+                    }
+                    return;
+                }
+
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].classList.contains($modalidade) ? divs[i].style.display = "block" : divs[i].style.display = "none";
+                }
             }
 
         </script>

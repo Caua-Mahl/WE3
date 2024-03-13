@@ -15,16 +15,26 @@ class LojaController extends Controller
         $produtos  = Requisitor::requisitarApi('https://ah.we.imply.com/caua/produtos');
         $descrição = "Este lugar é muito bonito, tem uma paisagem incrível e é muito bom para relaxar.";
         $paises    = [
-            "Espanha",
-            "Brasil",
             "Japão",
-            "França"
+            "China",
+            "India",
+            "Estados Unidos",
+            "Brasil",
+            "Inglaterra",
+            "França",
         ];
 
         for ($i = 0; $i < count($produtos->result); $i++) {
             $produtos->result[$i]->dscinterna = $descrição;
             $produtos->result[$i]->dscproduto = $paises[$i];
+            
         }
+
+        for ($i = 0; $i < 3; $i++) {
+            $produtos->result[$i]->modalidade = 2;
+        }
+
+
 
         session(['produtos' => $produtos->result]);
 

@@ -26,13 +26,13 @@
                     <div class="formCarrinho">
                         <form action="{{ route('carrinho.atualizar') }}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $produto->id }}">
-                            <input type="number" name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal" max="50" min="1">
-                            <input type="submit" value="Atualizar" class="atualizarCarrinho" onclick="aviao()">
+                            <input type="hidden"  name="id"         value="{{ $produto->id }}">
+                            <input type="number"  name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal" max="50" min="1">
+                            <input type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="aviao()">
                         </form>
                         <form action="{{ route('carrinho.remover') }}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $produto->id }}">
+                            <input type="hidden" name="id"       value="{{ $produto->id }}">
                             <input type="submit" value="Remover" class="removerCarrinho" onclick="aviao()">
                         </form>
                     </div>

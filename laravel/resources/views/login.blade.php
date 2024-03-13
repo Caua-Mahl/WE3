@@ -23,8 +23,8 @@
                     <p style="color: red;">{{ $message }}</p> 
                 @enderror
                 
-                <input type="text"     name="email" id="email" placeholder="E-mail">   
-                <input type="password" name="cpf"   id="cpf"   placeholder="Cpf">
+                <input type="text"      name="email" id="email" placeholder="E-mail">   
+                <input type="password"  name="cpf"   id="cpf"   placeholder="Cpf">
                 <input type="submit"   value="Entrar" onclick="aviao()">
             </form>
         </div>

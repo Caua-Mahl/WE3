@@ -59,10 +59,7 @@ class Carrinho {
 
     $ids   = array_column($carrinho, 'id');
     $index = array_search($produto['id'], $ids);
-
-    $carrinho[$index]->quantidade = $produto['quantidade'];
     
-    return $carrinho;
-}
+    $carrinho[$index]->quantidade = $produto['quantidade'];
 
 */

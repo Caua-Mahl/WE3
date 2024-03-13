@@ -21,6 +21,7 @@ h1 {
     margin: 20px 0;
 }
 
+
 .home {
     backdrop-filter: blur(2px);
     border-radius: 10px;
@@ -203,6 +204,15 @@ a {
 .loja .sucesso {
     font-size: 25px;
     margin: 20px 0;
+    color: #4a8611;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.281);
+}
+
+.detalhes img {
+    width: 500px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 10px 0 20px 0;
 }
 
 .produtos {
@@ -217,6 +227,7 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .detalhes {
@@ -343,9 +354,9 @@ footer p {
     backdrop-filter: blur(5px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
-    display: flex;
+    display: block;
     font-size: 20px;
     margin-bottom: 20px;
 }
@@ -382,9 +393,19 @@ footer p {
 }
 
 .formCarrinho {
-    width: 50%;
+    width: auto;
     height: auto;
-    margin: 0px 20px 0px 0px;
+    justify-content: center;
+    text-align: center;
+    display: block;
+    align-items: center;
+}
+
+.formCarrinho form {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .formCarrinho input {
@@ -399,7 +420,7 @@ footer p {
     font-size: 20px;
     font-weight: 500;
     border-radius: 30px;
-    margin: 15px 0;
+    margin: 15px;
 }
 
 .limparCarrinho {
@@ -417,7 +438,7 @@ footer p {
     cursor: pointer;
 }
 
-input:hover, button:hover, .maisMenos:hover {
+input:hover, button:hover, .maisMenos:hover, .hover:hover{
     background-color: #299fe4a8;
     box-shadow: 0 0 10px rgba(234, 232, 232, 0.576);
 }
