@@ -13,7 +13,7 @@ function WebServiceExec($params, $data) {
         ])
         ->fetch();
 
-    if (is_null($banco["nome"])) {
+    if (is_null($banco["idpessoa"])) {
         return ["logado" => False];
     }
 

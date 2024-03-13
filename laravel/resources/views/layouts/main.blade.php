@@ -4,106 +4,42 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@yield('titulo')</title>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
     </head>
 
     <body>
         <header>
             <a href="{{ route('home.index') }}" class="logo">
-                <img src="{{ asset('imgs/dragao.png') }}" alt="Shenlong Airlines Logo">
+                <img src="imgs/dragao.png" alt="Shenlong Airlines Logo">
                 <p>Shenlong Airlines</p>
             </a>
             <nav>
                 <a href="{{ route('home.index') }}" onclick="goku()">Home</a>
-                <a href="{{ route('loja.index') }}" onclick="goku()">Loja</a>
-
                 @if (!session('usuario'))
-                    <a href
-                    ="{{ route('login.index') }}" onclick="goku()">Entrar</a>
+                    <a href="{{ route('login.index') }}" onclick="goku()">Entrar</a>
                 @else
+                    <a href="{{ route('loja.index') }}" onclick="goku()">Loja</a>
                     <a href="{{ route('carrinho.index') }}" onclick="goku()">Carrinho</a>
                     <a href="{{ route('login.deslogar') }}" onclick="goku()">Sair</a>
-                    <a href="{{ route('login.index') }}" onclick="goku()" class="nome">{{ session('usuario')->name }}</a>
+                    <a href="{{ route('login.index') }}" onclick="goku()" class="nome">{{ session('usuario')['name'] }}</a>
                 @endif
             </nav>
         </header>
 
-        <img src="{{ asset('imgs/goku.png') }}" alt="avião que voa na página" class="goku">
-        <!--<img src="{{ asset('imgs/shenlong.png') }}" alt="avião que voa na página" class="shenlong">-->
+        <img src="imgs/goku.png"     alt="Goku voando" class="goku">
+        <img src="imgs/shenlong.png" alt="Shenlong"    class="shenlong" style="display: none" onclick="shenlong()">
 
-        <section class="conteudo">
+        <main class="conteudo">
             @yield('conteudo')
-        </section>
+        </main>
 
         <footer>
             <p>SAC</p>
             <p>Política de Privacidade</p>
             <p>Política de Cookies</p>
             <p>Termo de Compra </p>
-            <p class="direita">Desenvolvido por Cauã Mahl</p>
+            <p class="direita" onclick="shenlong()">Desenvolvido por Cauã Mahl</p>
         </footer>
-
-        <script>
-            function mostrarInfo(div) {
-                var escondido = div.getElementsByClassName("escondido");
-                var botao     = div.getElementsByClassName("info");
-                var divs      = document.getElementsByClassName("produtos");
-                var filtro    = document.getElementsByClassName("modalidade");
-
-                if (escondido[0].style.display == "none") {
-                    var divs = document.getElementsByClassName("produtos");
-
-                    for (var i = 0; i < divs.length; i++) {
-                        divs[i].style.display = "none";
-                    }
-
-                    div.style.display          = "block";
-                    div.classList.remove("hover");
-                    escondido[0].style.display = "block";
-                } else {
-                    for (var i = 0; i < divs.length; i++) {
-                        divs[i].style.display = "block";
-                    }
-
-
-                    div.classList.add("hover");
-                    escondido[0].style.display = "none";
-                }
-            }
-
-            function adicionar(div) {
-                var quantidade          = div.getElementsByClassName("quantidade");
-                quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) + 1;
-            }
-
-            function remover(div) {
-                var quantidade          = div.getElementsByClassName("quantidade");
-                quantidade[0].innerHTML = parseInt(quantidade[0].innerHTML) - 1 > 1 ? parseInt(quantidade[0].innerHTML) - 1 : 1;
-            }
-
-            function pegarQuantidade(div) {
-                div.getElementsByClassName("quantidadeFinal")[0].value = div.getElementsByClassName("quantidade")[0].innerHTML;
-            }
-
-            function goku() {
-                document.getElementsByClassName("goku")[0].style.display = "block";
-            }
-
-            function modalidade($modalidade) {
-                var divs = document.getElementsByClassName("produtos");
-
-                if ($modalidade == 0) {
-                    for (var i = 0; i < divs.length; i++) {
-                        divs[i].style.display = "block";
-                    }
-                    return;
-                }
-
-                for (var i = 0; i < divs.length; i++) {
-                    divs[i].classList.contains($modalidade) ? divs[i].style.display = "block" : divs[i].style.display = "none";
-                }
-            }
-
-        </script>
+        <script src="/js/script.js"></script>
     </body>
 </html>

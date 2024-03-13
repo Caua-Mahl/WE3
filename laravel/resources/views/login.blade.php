@@ -4,14 +4,14 @@
 
 @section('conteudo')
     @if (session('usuario'))
-        <div class="deslogar">     
+        <section class="deslogar">     
             <h1>Login</h1>
-            <p>Olá, {{ session('usuario')->name }}!</p>
+            <p>Olá, {{ session('usuario')['name'] }}!</p>
             <p>Você já está logado, deseja deslogar?</p>
             <a href="{{ route('login.deslogar') }}" onclick="goku()">Logout</a>
-        </div>
+        </section>
     @else
-        <div class="logar">
+        <section class="logar">
             <h1>Login</h1>
             <form action="{{ route('login.logar') }}" method="post">
                 @csrf
@@ -25,8 +25,10 @@
                 
                 <input type="text"      name="email" id="email" placeholder="E-mail">   
                 <input type="password"  name="cpf"   id="cpf"   placeholder="Cpf">
+                <label for="lembrar">Lembrar-me</label>
+                <input type="checkbox"  name="lembrar" id="lembrar" value="1">
                 <input type="submit"   value="Entrar" onclick="goku()">
             </form>
-        </div>
+        </section>
     @endif
 @endsection

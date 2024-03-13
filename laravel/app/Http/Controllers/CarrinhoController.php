@@ -11,7 +11,7 @@ class CarrinhoController extends Controller {
         if (!session('usuario'))
             return redirect()->route('login.index')->with('erro', 'Você precisa estar logado para acessar o carrinho');
 
-        session(['carrinho' => (json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho)]);
+        session(['carrinho' => (json_decode(User::where('id', session('usuario')['id'])->first()->carrinho)->carrinho)]);
 
         if (is_object(session('carrinho'))) {
             session(['carrinho' => (array) session('carrinho')]);
@@ -22,7 +22,7 @@ class CarrinhoController extends Controller {
     }
 
     public function adicionar() {
-        $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho;
+        $carrinho = json_decode(User::where('id', session('usuario')['id'])->first()->carrinho)->carrinho;
         $produto  = [
             'id'         => request('id'),
             'nome'       => request('nome'),
@@ -30,7 +30,7 @@ class CarrinhoController extends Controller {
             'quantidade' => request('quantidade')
         ];
         
-        User::where('name', session('usuario')->name)
+        User::where('id', session('usuario')['id'])
             ->update([
                 'carrinho' => json_encode(['carrinho' => Carrinho::Adicionar($carrinho, $produto)])
             ]);
@@ -39,32 +39,32 @@ class CarrinhoController extends Controller {
     }
 
     public function atualizar() {
-        $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho;
+        $carrinho = json_decode(User::where('id', session('usuario')['id'])->first()->carrinho)->carrinho;
         $produto  = [
             'id'         => request('id'),
             'quantidade' => request('quantidade')
         ];
 
-        User::where('name', session('usuario')->name)
+        User::where('id', session('usuario')['id'])
             ->update(['carrinho' => json_encode(['carrinho' => Carrinho::Atualizar($carrinho, $produto)])]);
 
         return redirect()->route('carrinho.index');
     }
 
     public function remover() {
-        $carrinho = json_decode(User::where('name', session('usuario')->name)->first()->carrinho)->carrinho;
+        $carrinho = json_decode(User::where('id', session('usuario')['id'])->first()->carrinho)->carrinho;
         $produto  = [
             'id' => request('id')
         ];
 
-        User::where('name', session('usuario')->name)
+        User::where('id', session('usuario')['id'])
             ->update(['carrinho' => json_encode(['carrinho' => Carrinho::Remover($carrinho, $produto)])]);
 
         return redirect()->route('carrinho.index');
     }
 
     public function limpar() {
-        User::where('name', session('usuario')->name)
+        User::where('id', session('usuario')['id'])
             ->update(['carrinho' => json_encode(['carrinho' => []])]);
 
         return redirect()->route('carrinho.index');

@@ -3,18 +3,18 @@
 @section('titulo', 'Carrinho')
 
 @section('conteudo')
-    <div class="carrinho">
+    <section class="carrinho">
         <h1>Carrinho</h1>
 
         @if (count(session('carrinho')) == 0)
             <div class="vazio">
                 <img src="{{ asset('imgs/carrinho_vazio.png') }}" alt="Carrinho vazio">
                 <h2>Seu carrinho está vazio...</h2>
-                <p>Vá até a aba de loja e adicione produtos ao seu carrinho!</p>
+                <p>Entre na loja e adicione produtos ao seu carrinho!</p>
             </div>
         @else
             @foreach (session('carrinho') as $produto)
-                <div class="produtoCarrinho">
+                <article class="produtoCarrinho">
                     <div class="dadosCarrinho">
                         <h2>{{ $produto->nome }}</h2>
                         <div>
@@ -36,7 +36,7 @@
                             <input type="submit" value="Remover" class="removerCarrinho" onclick="goku()">
                         </form>
                     </div>
-                </div>
+                </article>
             @endforeach
 
             <div class="finalizar">
@@ -48,5 +48,5 @@
                 </form>
             </div>
         @endif
-    </div>
+    </section>
 @endsection

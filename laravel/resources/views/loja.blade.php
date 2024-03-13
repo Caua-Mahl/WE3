@@ -3,7 +3,7 @@
 @section('titulo', 'Loja')
 
 @section('conteudo')
-    <div class="loja">
+    <section class="loja">
         <h1>Loja</h1>
         
         @if (session('sucess'))
@@ -40,5 +40,5 @@
                 </div>
             </div>
         @endforeach
-    </div>
+    </section>
 @endsection

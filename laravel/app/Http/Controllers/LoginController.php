@@ -43,16 +43,24 @@ class LoginController extends Controller {
                 'password' => $dados->cpf
             ]
         );
-
+        
         Auth::Attempt([
             'email'    => $dados->email,
             'password' => $dados->cpf
-        ]);
+        ], $dados->lembrar);
+
 
         if (!Auth::check())
             return redirect()->route('login.index')->withErrors(['email' => 'Erro ao logar']);
 
-        session(['usuario' => $usuario]);
+
+        session([
+            'usuario' => [
+                'id'   => $resultado->result->idpessoa,
+                'name' => $resultado->result->nome
+            ]
+        ]);
+
         return redirect()->route('login.index');
     }
 

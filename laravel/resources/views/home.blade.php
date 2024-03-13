@@ -3,7 +3,7 @@
 @section('titulo', 'Home')
 
 @section('conteudo')
-    <div class="home">
+    <article class="home">
         <h1>Seja bem-vindo à Shenlong Airlines, a melhor companhia aérea do mundo!</h1>
         <div class="sobre">
             <h2>Sobre:</h2>
@@ -13,6 +13,7 @@
                 diferença no mundo. Contamos com alto padrão de conforto, além de atendimento online 24h. Nossa frota conta 
                 com os aviões mais confiáveis para garantir a segurança de nossos passageiros.
             </p>
-        </div>
-    </div>
+        </article>
+        <img src="imgs/aeroporto.jpg" alt="Aeroporto" class="aeroporto">
+    </section>
 @endsection
