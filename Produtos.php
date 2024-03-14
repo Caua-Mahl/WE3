@@ -1,4 +1,3 @@
-<?php 
 function WebServiceExec($params, $data){
 	$json = Db::Read()->clear()
 		->select([
@@ -6,15 +5,15 @@ function WebServiceExec($params, $data){
 			'p.preco',
 			'p.idproduto',
 			'p.dscinterna',
-			'p.imagem'
+			'p.imagem',
+			'p.modalidade'
 		])
 		->from ('pdv_produto p')
         ->whereAND([
 			'p.preco' => new we_Where_NotEqual(0),
-			'p.modalidade' => 1,
 			'p.ativo' => true		   
 		])
-		->limitDB(4)
+		->limitDB(7)
 	    ->fetchAll();
 
 	for ($i = 0; $i < count($json); $i++) {
@@ -23,6 +22,5 @@ function WebServiceExec($params, $data){
 
 	return $json;
 }
-	
 	
 	

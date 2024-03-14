@@ -10,7 +10,7 @@ class CarrinhoController extends Controller {
     public function index() {
         try {
             if (!session('usuario'))
-                return redirect()->route('login.index')->with('erro', 'Você precisa estar logado para acessar o carrinho');
+                return redirect()->route('login.index')->with('error', 'Você precisa estar logado para acessar o carrinho');
 
             session(['carrinho' => (json_decode(User::where('id', session('usuario')['id'])->first()->carrinho)->carrinho)]);
 

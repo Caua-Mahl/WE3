@@ -88,7 +88,6 @@ header {
     background-size: cover;
     font-size: 32px;
     color: #000000;
-    text-transform: none;
     font-weight: 700;
 }
 
@@ -515,7 +514,14 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     margin-top: 200px;
     position: absolute;
     float: left;
-    animation: goku 8s;
+    animation: goku 10s;
+    animation-delay: 12s;
+
+}
+
+.sumindo {
+    display: none;
+    animation: sumindo 5s;
 }
 
 .shenlong {
@@ -524,7 +530,7 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     position: fixed;
     opacity: 1;
     cursor: pointer;
-    animation: shenlong 3s infinite;
+    animation: aparecendo 5s, shenlong 3s infinite;
 }
 
 .qrcode {
@@ -533,7 +539,8 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     position: fixed;
     animation: qrcode 3s;
 }
-@keyframes gokua {
+
+@keyframes goku {
     0% {
         margin-left: -100%;
         opacity: 1;
@@ -542,7 +549,7 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     100% {
         margin-left: 130%;
         opacity: 1;
-        }
+    }
 }
 
 @keyframes shenlong {
@@ -575,5 +582,26 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     }
 }
 
+@keyframes sumindo {
+    0% {
+        opacity: 1;
+        display: flex;
+    }
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
 
-
+@keyframes aparecendo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

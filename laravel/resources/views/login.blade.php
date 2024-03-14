@@ -36,7 +36,7 @@
             </form>
             <div class="outros">
                     <a>Esqueci a senha</a>
-                    <a>Não tenho conta</a>
+                    <a>Cadastrar</a>
             </div>
         </section>
     @endif

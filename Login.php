@@ -1,4 +1,3 @@
-<?php
 function WebServiceExec($params, $data) {
     $banco = Db::Read()
         ->clear()
@@ -13,7 +12,7 @@ function WebServiceExec($params, $data) {
         ])
         ->fetch();
 
-    if (is_null($banco["idpessoa"])) {
+    if (is_null($banco["nome"])) {
         return ["logado" => False];
     }
 

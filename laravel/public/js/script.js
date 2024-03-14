@@ -63,16 +63,16 @@ function shenlong() {
 
     if (shenlong.style.display == "none") {
         shenlong.style.display = "block";
-        document.getElementsByTagName("footer")[0].style.display = "none";
-        document.getElementsByTagName("header")[0].style.display = "none";
-        document.getElementsByTagName("main")[0].style.display   = "none";
+        document.getElementsByTagName("footer")[0].classList.add("sumindo");
+        document.getElementsByTagName("header")[0].classList.add("sumindo");
+        document.getElementsByTagName("main")[0].classList.add("sumindo");
         return;
     } 
     
     shenlong.style.display = "none";
-    document.getElementsByTagName("footer")[0].style.display = "flex";
-    document.getElementsByTagName("header")[0].style.display = "flex";
-    document.getElementsByTagName("main")[0].style.display   = "flex";
+    document.getElementsByTagName("footer")[0].classList.remove("sumindo");
+    document.getElementsByTagName("header")[0].classList.remove("sumindo");
+    document.getElementsByTagName("main")[0].classList.remove("sumindo");
 }
 
 function esfera() {
