@@ -3,9 +3,9 @@
 @section('titulo', 'Home')
 
 @section('conteudo')
-    <article class="home">
+    <section class="home">
         <h1>Seja bem-vindo à Shenlong Airlines, a melhor companhia aérea do mundo!</h1>
-        <div class="sobre">
+        <article class="sobre">
             <h2>Sobre:</h2>
             <p>
                 A Shenlong Airlines está presente em mais de 125 países, com uma vasta gama de opções para viagens áereas. 
