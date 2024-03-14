@@ -31,6 +31,10 @@
                 </div>
                 <input type="submit"   value="Entrar" onclick="esfera()">
             </form>
+            <div class="outros">
+                    <a>Esqueci a senha</a>
+                    <a>Não tenho conta</a>
+            </div>
         </section>
     @endif
 @endsection

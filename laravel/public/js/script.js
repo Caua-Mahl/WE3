@@ -82,7 +82,7 @@ function esfera() {
           document.getElementsByClassName("esfera")[0].style.display = "none";
           document.getElementsByTagName("main")[0].style.display = "flex";
         },
-        2000
+        3000
     );
 }
 
