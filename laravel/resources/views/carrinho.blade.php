@@ -26,11 +26,14 @@
                     <div class="formCarrinho">
                         <form action="{{ route('carrinho.atualizar') }}" method="post">
                             @csrf
-                            <input type="hidden"  name="id"         value="{{ $produto->id }}">
-                            <input type="number"  name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal" max="50" min="1">
-                            <input type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="esfera()">
+                            <button type="button"  class="maisMenos" onclick="remover(this.parentElement)">-</button>
+                            <p      class="quantidade">1</p>
+                            <button type="button"  class="maisMenos" onclick="adicionar(this.parentElement)">+</button>
+                            <input  type="hidden"  name="id"         value="{{ $produto->id }}">
+                            <input  type="hidden"  name="quantidade" value="1"  class="quantidadeFinal">
+                            <input  type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="esfera(); pegarQuantidade(this.parentElement)">
                         </form>
-                        <form action="{{ route('carrinho.remover') }}" method="post">
+                        <form action="{{ route('carrinho.remover') }}" method="post" class="removerCarrinho"> 
                             @csrf
                             <input type="hidden" name="id"       value="{{ $produto->id }}">
                             <input type="submit" value="Remover" class="removerCarrinho" onclick="esfera()">
