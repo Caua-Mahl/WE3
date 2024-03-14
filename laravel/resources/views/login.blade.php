@@ -15,6 +15,9 @@
             <h1>Login</h1>
             <form action="{{ route('login.logar') }}" method="post">
                 @csrf
+                @if (session('error'))
+                    <p style="color: red;">{{ session('error') }}</p>
+                @endif
                 @error('email')
                     <p style="color: red;">{{ $message }}</p> 
                 @enderror
@@ -29,7 +32,7 @@
                     <label for="lembrar">Lembrar de mim:</label>
                     <input type="checkbox" name="lembrar" id="lembrar">
                 </div>
-                <input type="submit"   value="Entrar" onclick="esfera()">
+                <input type="submit" value="Entrar" onclick="esfera()">
             </form>
             <div class="outros">
                     <a>Esqueci a senha</a>

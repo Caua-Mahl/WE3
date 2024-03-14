@@ -5,6 +5,10 @@
 @section('conteudo')
     <section class="carrinho">
         <h1>Carrinho</h1>
+        
+        @if (session('error'))
+            <p class="erro"> {{ session('error') }} </p>
+        @endif
 
         @if (count(session('carrinho')) == 0)
             <div class="vazio">
@@ -27,7 +31,7 @@
                         <form action="{{ route('carrinho.atualizar') }}" method="post">
                             @csrf
                             <button type="button"  class="maisMenos" onclick="remover(this.parentElement)">-</button>
-                            <p      class="quantidade">1</p>
+                            <p class="quantidade">1</p>
                             <button type="button"  class="maisMenos" onclick="adicionar(this.parentElement)">+</button>
                             <input  type="hidden"  name="id"         value="{{ $produto->id }}">
                             <input  type="hidden"  name="quantidade" value="1"  class="quantidadeFinal">

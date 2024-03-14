@@ -1,17 +1,17 @@
 function mostrarInfo(div) {
-    var escondido = div.getElementsByClassName("escondido");
-    var produtos      = document.getElementsByClassName("produtos");
-    var filtro    = document.getElementsByClassName("modalidade");
+    var selecionado = div.getElementsByClassName("escondido");
+    var produtos    = document.getElementsByClassName("produtos");
+    var filtro      = document.getElementsByClassName("modalidade");
 
-    if (escondido[0].style.display == "none") {
+    if (selecionado[0].style.display == "none") {
         
         for (var i = 0; i < produtos.length; i++) {
             produtos[i].style.display = "none";
         }
 
-        filtro[0].style.display    = "none"; 
-        div.style.display          = "block";
-        escondido[0].style.display = "block";
+        filtro[0].style.display      = "none"; 
+        div.style.display            = "block";
+        selecionado[0].style.display = "block";
         div.classList.remove("hover");
     }
     else {
@@ -20,8 +20,8 @@ function mostrarInfo(div) {
             produtos[i].style.display = "block";
         }
 
-        escondido[0].style.display = "none";
-        filtro[0].style.display    = "block";
+        selecionado[0].style.display = "none";
+        filtro[0].style.display      = "block";
         div.classList.add("hover");
     }
 }
@@ -65,26 +65,26 @@ function shenlong() {
         shenlong.style.display = "block";
         document.getElementsByTagName("footer")[0].style.display = "none";
         document.getElementsByTagName("header")[0].style.display = "none";
-        document.getElementsByTagName("main")[0].style.display = "none";
+        document.getElementsByTagName("main")[0].style.display   = "none";
         return;
     } 
     
     shenlong.style.display = "none";
     document.getElementsByTagName("footer")[0].style.display = "flex";
     document.getElementsByTagName("header")[0].style.display = "flex";
-    document.getElementsByTagName("main")[0].style.display = "flex";
+    document.getElementsByTagName("main")[0].style.display   = "flex";
 }
 
 function esfera() {
     document.getElementsByClassName("esfera")[0].style.display = "block";
-    document.getElementsByTagName("main")[0].style.display = "none";
+    document.getElementsByTagName("main")[0].style.display     = "none";
 
     setTimeout(
         function() {
           document.getElementsByClassName("esfera")[0].style.display = "none";
-          document.getElementsByTagName("main")[0].style.display = "flex";
+          document.getElementsByTagName("main")[0].style.display     = "flex";
         },
-        3000
+        10000
     );
 }
 

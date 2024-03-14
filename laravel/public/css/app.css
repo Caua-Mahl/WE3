@@ -253,6 +253,13 @@ a {
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.281);
     animation: sucesso 4s;
 }
+.loja .erro {
+    font-size: 25px;
+    margin: 20px 0;
+    color: #9c0303;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.281);
+    animation: erro 4s;
+}
 
 .detalhes img {
     width: 500px;
@@ -524,6 +531,7 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     width: 600px;
     height: auto;
     position: fixed;
+    animation: qrcode 3s;
 }
 @keyframes gokua {
     0% {
@@ -555,6 +563,15 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes qrcode {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 

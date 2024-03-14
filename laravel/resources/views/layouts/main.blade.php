@@ -6,7 +6,6 @@
         <title>@yield('titulo')</title>
         <link href="css/app.css" rel="stylesheet">
     </head>
-
     <body>
         <header>
             <a href="{{ route('home.index') }}" class="logo">
@@ -16,12 +15,12 @@
             <nav>
                 <a href="{{ route('home.index') }}" onclick="esfera()">Home</a>
                 @if (!session('usuario'))
-                    <a href="{{ route('login.index') }}" onclick="esfera()">Entrar</a>
+                    <a href="{{ route('login.index') }}"    onclick="esfera()">Entrar</a>
                 @else
-                    <a href="{{ route('loja.index') }}" onclick="esfera()">Loja</a>
+                    <a href="{{ route('loja.index') }}"     onclick="esfera()">Loja</a>
                     <a href="{{ route('carrinho.index') }}" onclick="esfera()">Carrinho</a>
                     <a href="{{ route('login.deslogar') }}" onclick="esfera()">Sair</a>
-                    <a href="{{ route('login.index') }}" onclick="esfera()" class="nome">{{ session('usuario')['name'] }}</a>
+                    <a href="{{ route('login.index') }}"    onclick="esfera()" class="nome">{{ session('usuario')['name'] }}</a>
                 @endif
             </nav>
         </header>
@@ -42,6 +41,8 @@
             <p>Termo de Compra </p>
             <p class="direita" onclick="shenlong()">Desenvolvido por Cauã Mahl</p>
         </footer>
+
         <script src="/js/script.js"></script>
+
     </body>
 </html>

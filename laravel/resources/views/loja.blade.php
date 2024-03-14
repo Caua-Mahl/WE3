@@ -9,6 +9,9 @@
         @if (session('sucess'))
             <p class="sucesso"> {{ session('sucess') }} </p>
         @endif
+        @if (session('error'))
+            <p class="erro"> {{ session('error') }} </p>
+        @endif
 
         <div class="modalidade">
             <button type="button" class="maisMenos" onclick="modalidade(0)">Todos</button>
@@ -24,7 +27,7 @@
                 <div class="detalhes escondido" style="display: none;">
                     <img src="{{ asset('imgs/' . $produto->imagem) }}" alt="imagem do produto">
                     <p>{{ $produto->dscinterna }}</p>
-                    <form action="{{ route('carrinho.adicionar') }}" method="post">
+                    <form action="{{ route('loja.adicionar') }}" method="post">
                         @csrf
                         <div class="carrinhoLoja">
                             <button type="button" class="maisMenos" onclick="remover(this.parentElement)">-</button>
