@@ -2,9 +2,6 @@
 
 namespace App\Http\Classes;
 
-use Illuminate\Http\Request;
-use PhpParser\JsonDecoder;
-
 class Carrinho {
 
     public static function Total($carrinho): int {
@@ -52,7 +49,6 @@ class Carrinho {
 
 
 
-// perguntar qual jeito é melhor amanhã
 /*
     $carrinho[array_search($produto['id'], array_column($carrinho, 'id'))]->quantidade = $produto['quantidade'];
 

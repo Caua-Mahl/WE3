@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class LoginController extends Controller {
+    
     public function index() {        
         return view('login');
     }
@@ -32,7 +33,7 @@ class LoginController extends Controller {
         if (is_null($resultado) or !($resultado->result->logado))
             return redirect()->route('login.index')->withErrors(['email' => 'E-mail ou cpf inválidos']);
 
-        $usuario = User::firstOrCreate(
+        User::firstOrCreate(
             [
                 'email'    => $dados->email,
                 'id'       => $resultado->result->idpessoa,
