@@ -56,6 +56,8 @@ function modalidade($modalidade) {
     }
 }
 
+// não necessário para o funcionamento do codigo //
+
 function shenlong() {
     var shenlong = document.getElementsByClassName("shenlong")[0];
 
