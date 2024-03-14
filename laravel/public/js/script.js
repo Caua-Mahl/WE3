@@ -1,13 +1,12 @@
 function mostrarInfo(div) {
     var escondido = div.getElementsByClassName("escondido");
-    var botao     = div.getElementsByClassName("info");
-    var divs      = document.getElementsByClassName("produtos");
+    var produtos      = document.getElementsByClassName("produtos");
     var filtro    = document.getElementsByClassName("modalidade");
 
     if (escondido[0].style.display == "none") {
         
-        for (var i = 0; i < divs.length; i++) {
-            divs[i].style.display = "none";
+        for (var i = 0; i < produtos.length; i++) {
+            produtos[i].style.display = "none";
         }
 
         filtro[0].style.display    = "none"; 
@@ -17,8 +16,8 @@ function mostrarInfo(div) {
     }
     else {
 
-        for (var i = 0; i < divs.length; i++) {
-            divs[i].style.display = "block";
+        for (var i = 0; i < produtos.length; i++) {
+            produtos[i].style.display = "block";
         }
 
         escondido[0].style.display = "none";
@@ -42,21 +41,21 @@ function pegarQuantidade(div) {
 }
 
 function goku() {
-//    document.getElementsByClassName("goku")[0].style.display = "block";
+    document.getElementsByClassName("goku")[0].style.display = "block";
 }
 
 function modalidade($modalidade) {
-    var divs = document.getElementsByClassName("produtos");
+    var produtos = document.getElementsByClassName("produtos");
 
     if ($modalidade == 0) {
-        for (var i = 0; i < divs.length; i++) {
-            divs[i].style.display = "block";
+        for (var i = 0; i < produtos.length; i++) {
+            produtos[i].style.display = "block";
         }
         return;
     }
 
-    for (var i = 0; i < divs.length; i++) {
-        divs[i].classList.contains($modalidade) ? divs[i].style.display = "block" : divs[i].style.display = "none";
+    for (var i = 0; i < produtos.length; i++) {
+        produtos[i].classList.contains($modalidade) ? produtos[i].style.display = "block" : produtos[i].style.display = "none";
     }
 }
 

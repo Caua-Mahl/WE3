@@ -17,7 +17,7 @@
         </div>
         
         @foreach (session('produtos') as $produto)
-            <div class="produtos hover {{$produto->modalidade }}">
+            <article class="produtos hover {{$produto->modalidade }}">
                 <h2 class="info" onclick="mostrarInfo(this.parentElement)">
                     {{ $produto->dscproduto }} - R$ {{ number_format($produto->preco, 2, ",", ".") }}
                 </h2>
@@ -38,7 +38,7 @@
                         <button type="submit"  class="maisMenos adicionar"  onclick="pegarQuantidade(this.parentElement);  goku()">Adicionar passagens ao Carrinho</button>
                     </form>
                 </div>
-            </div>
+            </article>
         @endforeach
     </section>
 @endsection
