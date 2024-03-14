@@ -40,9 +40,6 @@ function pegarQuantidade(div) {
     div.getElementsByClassName("quantidadeFinal")[0].value = div.getElementsByClassName("quantidade")[0].innerHTML;
 }
 
-function goku() {
-    document.getElementsByClassName("goku")[0].style.display = "block";
-}
 
 function modalidade($modalidade) {
     var produtos = document.getElementsByClassName("produtos");
@@ -73,5 +70,31 @@ function shenlong() {
     shenlong.style.display = "none";
     document.getElementsByTagName("footer")[0].style.display = "flex";
     document.getElementsByTagName("header")[0].style.display = "flex";
+    document.getElementsByTagName("main")[0].style.display = "flex";
+}
+
+function esfera() {
+    document.getElementsByClassName("esfera")[0].style.display = "block";
+    document.getElementsByTagName("main")[0].style.display = "none";
+
+    setTimeout(
+        function() {
+          document.getElementsByClassName("esfera")[0].style.display = "none";
+          document.getElementsByTagName("main")[0].style.display = "flex";
+        },
+        2000
+    );
+}
+
+function qrcode() {
+    var qrcode = document.getElementsByClassName("qrcode")[0];
+
+    if (qrcode.style.display == "none") {
+        qrcode.style.display = "block";
+        document.getElementsByTagName("main")[0].style.display = "none";
+        return;
+    } 
+    
+    qrcode.style.display = "none";
     document.getElementsByTagName("main")[0].style.display = "flex";
 }

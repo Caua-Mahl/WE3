@@ -28,12 +28,12 @@
                             @csrf
                             <input type="hidden"  name="id"         value="{{ $produto->id }}">
                             <input type="number"  name="quantidade" value="{{ $produto->quantidade }}" class="quantidadeFinal" max="50" min="1">
-                            <input type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="goku()">
+                            <input type="submit"  value="Atualizar" class="atualizarCarrinho" onclick="esfera()">
                         </form>
                         <form action="{{ route('carrinho.remover') }}" method="post">
                             @csrf
                             <input type="hidden" name="id"       value="{{ $produto->id }}">
-                            <input type="submit" value="Remover" class="removerCarrinho" onclick="goku()">
+                            <input type="submit" value="Remover" class="removerCarrinho" onclick="esfera()">
                         </form>
                     </div>
                 </article>
@@ -41,10 +41,10 @@
 
             <div class="finalizar">
                 <h3>Total Do Carrinho: R$ {{ number_format(session('total'), 2, ",", ".") }}</p>
-                <button>Finalizar Compra</button>
+                <button onclick="qrcode()">Finalizar Compra</button>
                 <form action="{{ route('carrinho.limpar') }}" method="post">
                     @csrf
-                    <input type="submit" value="Limpar Carrinho" class="limparCarrinho" onclick="goku()">
+                    <input type="submit" value="Limpar Carrinho" class="limparCarrinho" onclick="esfera()">
                 </form>
             </div>
         @endif

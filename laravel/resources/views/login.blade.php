@@ -8,7 +8,7 @@
             <h1>Login</h1>
             <p>Olá, {{ session('usuario')['name'] }}!</p>
             <p>Você já está logado, deseja deslogar?</p>
-            <a href="{{ route('login.deslogar') }}" onclick="goku()">Logout</a>
+            <a href="{{ route('login.deslogar') }}" onclick="esfera()">Logout</a>
         </section>
     @else
         <section class="logar">
@@ -25,9 +25,11 @@
                 
                 <input type="text"      name="email" id="email" placeholder="E-mail">   
                 <input type="password"  name="cpf"   id="cpf"   placeholder="Cpf">
-                <label for="lembrar">Lembrar-me</label>
-                <input type="checkbox"  name="lembrar" id="lembrar" value="1">
-                <input type="submit"   value="Entrar" onclick="goku()">
+                <div class="lembrar">
+                    <label for="lembrar">Lembrar de mim:</label>
+                    <input type="checkbox" name="lembrar" id="lembrar">
+                </div>
+                <input type="submit"   value="Entrar" onclick="esfera()">
             </form>
         </section>
     @endif

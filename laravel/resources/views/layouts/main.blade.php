@@ -14,20 +14,22 @@
                 <p>Shenlong Airlines</p>
             </a>
             <nav>
-                <a href="{{ route('home.index') }}" onclick="goku()">Home</a>
+                <a href="{{ route('home.index') }}" onclick="esfera()">Home</a>
                 @if (!session('usuario'))
-                    <a href="{{ route('login.index') }}" onclick="goku()">Entrar</a>
+                    <a href="{{ route('login.index') }}" onclick="esfera()">Entrar</a>
                 @else
-                    <a href="{{ route('loja.index') }}" onclick="goku()">Loja</a>
-                    <a href="{{ route('carrinho.index') }}" onclick="goku()">Carrinho</a>
-                    <a href="{{ route('login.deslogar') }}" onclick="goku()">Sair</a>
-                    <a href="{{ route('login.index') }}" onclick="goku()" class="nome">{{ session('usuario')['name'] }}</a>
+                    <a href="{{ route('loja.index') }}" onclick="esfera()">Loja</a>
+                    <a href="{{ route('carrinho.index') }}" onclick="esfera()">Carrinho</a>
+                    <a href="{{ route('login.deslogar') }}" onclick="esfera()">Sair</a>
+                    <a href="{{ route('login.index') }}" onclick="esfera()" class="nome">{{ session('usuario')['name'] }}</a>
                 @endif
             </nav>
         </header>
 
         <img src="imgs/goku.png"     alt="Goku voando" class="goku">
         <img src="imgs/shenlong.png" alt="Shenlong"    class="shenlong" style="display: none" onclick="shenlong()">
+        <img src="imgs/esfera.png"   alt="Esfera"      class="esfera"   style="display: none">
+        <img src="imgs/qrcode.jpeg"  alt="QrCode"      class="qrcode"   style="display: none" onclick="qrcode()">
 
         <main class="conteudo">
             @yield('conteudo')

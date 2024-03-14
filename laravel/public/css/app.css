@@ -13,6 +13,11 @@ body {
     background-position: center;
     overflow-x: hidden;
     background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    
 }
 
 h1 {
@@ -20,17 +25,6 @@ h1 {
     color: #000000;
     font-weight: 700;
     margin: 20px 0;
-}
-
-.shenlong {
-    width: auto;
-    height: 1000px;
-    position: fixed;
-    top: -20%;
-    left: 20%;
-    opacity: 1;
-    cursor: pointer;
-    animation: shenlong 5s infinite;
 }
 
 .home {
@@ -68,7 +62,7 @@ h1 {
 }
 
 header img {
-    width: 100px;
+    width: auto;
     height: 50px;
 }
 
@@ -77,6 +71,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    max-height: 60px;
     background: transparent;
     backdrop-filter: blur(10px);
     padding: 20px;
@@ -153,7 +148,7 @@ a {
 .logar form {
     width: 100%;
     position: relative;
-    height: 100px;
+    height: auto;
     margin: 40px 0;
     font-size: 26px;
     text-align: center;
@@ -172,6 +167,25 @@ a {
     font-size: 26px;
     border-radius: 30px;
     margin: 15px 0;
+}
+
+.lembrar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 300px;
+    height: 40px;
+}
+.lembrar input {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+.lembrar label {
+    width: auto;
+    font-size: 25px;
+    margin: 0 10px;
+    white-space: nowrap;
 }
 
 .deslogar {
@@ -297,48 +311,6 @@ a {
     cursor:pointer;
 }
 
-.goku {
-    display: block;
-    opacity: 0;
-    width: auto;
-    height: 400px;
-    margin-top: 200px;
-    position: absolute;
-    float: left;
-    animation: goku 10s ;
-}
-
-footer {
-    width: 100%;
-    background: transparent;
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    text-align: left;
-    bottom: 0;
-    left: 0;
-    padding: 20px 30px;    
-    max-height: 40px;
-}   
-
-footer img {
-    width: auto;
-    height: 200px;
-}
-footer p {
-    cursor: pointer;
-    margin: 0 20px;
-}
-
-.direita {
-    position: fixed;
-    right: 0;
-    justify-content: flex-end;
-    text-align: right;
-}
-
-
 .carrinho {
     width: 800px;
     height: auto;
@@ -461,13 +433,76 @@ footer p {
     cursor: pointer;
 }
 
+footer {
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    text-align: left;
+    left: 0;
+    padding: 20px 30px;    
+    position: fixed;
+    bottom: 0;  
+
+}   
+
+footer img {
+    width: auto;
+    height: 200px;
+}
+
+footer p {
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.direita {
+    position: fixed;
+    right: 0;
+    justify-content: flex-end;
+    text-align: right;
+}
+
 input:hover, button:hover, .maisMenos:hover, .hover:hover{
     background-color: #299fe4a8;
     box-shadow: 0 0 10px rgba(234, 232, 232, 0.576);
 }
 
+.esfera {
+    width: 400px;
+    height: auto;
+    position: fixed;
+    animation: esfera 1s infinite;
+}
 
-@keyframes goku {
+.goku {
+    display: block;
+    opacity: 0;
+    width: auto;
+    height: 400px;
+    margin-top: 200px;
+    position: absolute;
+    float: left;
+    animation: goku 10s;
+}
+
+.shenlong {
+    width: auto;
+    height: 1200px;
+    position: fixed;
+    opacity: 1;
+    cursor: pointer;
+    animation: shenlong 5s infinite;
+}
+
+.qrcode {
+    width: 600px;
+    height: auto;
+    position: fixed;
+}
+@keyframes gokua {
     0% {
         margin-left: -40%;
         opacity: 1;
@@ -485,13 +520,22 @@ input:hover, button:hover, .maisMenos:hover, .hover:hover{
 
 @keyframes shenlong {
     0% {
-        top: -20%;
+        top: -15%;
     }
     50% {
-        top: -10%;
+        top: -8%;
     }
     100% {
-        top: -20%;
+        top: -15%;
+    }
+}
+
+@keyframes esfera {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
